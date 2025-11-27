@@ -1,0 +1,281 @@
+import React, { Component } from 'react'
+import Newsitem from './NewsItem';
+
+export default class News extends Component {
+    articles = [
+        {
+            "source": {
+                "id": null,
+                "name": "Hollywood Reporter"
+            },
+            "author": "McKinley Franklin",
+            "title": "‘Dancing With the Stars’ Ends Season 34 With Star-Studded Finale as a New Winner Is Crowned: See the Scores, Who Won - The Hollywood Reporter",
+            "description": "The Hollywood Reporter is inside the ballroom for finale night, where couples performed three new numbers, including their coveted freestyle routines.",
+            "url": "http://www.hollywoodreporter.com/tv/tv-news/dwts-finale-season-34-episode-11-winner-scores-freestyle-1236435551/",
+            "urlToImage": "https://www.hollywoodreporter.com/wp-content/uploads/2025/11/DWTS-Finalists.jpg?w=1296&h=730&crop=1",
+            "publishedAt": "2025-11-26T06:50:30Z",
+            "content": "[This story contains major spoilers from episode 11 of Dancing With the Stars season 34.]\r\nDancing With the Stars has crowned a 34th winner!\r\nTuesday night’s finale was a star-studded affair, as the … [+4662 chars]"
+        },
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "Dominic Preston",
+            "title": "Qualcomm reveals its not-so-elite Snapdragon 8 Gen 5 - The Verge",
+            "description": "The first Qualcomm Snapdragon 8 Gen 5 phones will come from OnePlus, Motorola, and Vivo within weeks.",
+            "url": "https://www.theverge.com/news/828959/qualcomm-snapdragon-8-gen-5",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/11/Snapdragon-8-gen-5.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+            "publishedAt": "2025-11-26T06:30:00Z",
+            "content": "\u003Cul\u003E\u003Cli\u003E\u003C/li\u003E\u003Cli\u003E\u003C/li\u003E\u003Cli\u003E\u003C/li\u003E\u003C/ul\u003E\r\nSet to feature in phones from the likes of OnePlus and Motorola within weeks.\r\nSet to feature in phones from the likes of OnePlus and Motorola within weeks.\r\nby\r… [+3319 chars]"
+        },
+        {
+            "source": {
+                "id": "the-washington-post",
+                "name": "The Washington Post"
+            },
+            "author": "Gabe Hiatt, Natalie B. Compton, Andrea Sachs",
+            "title": "National parks announce ‘America-first’ upcharges for foreign visitors - The Washington Post",
+            "description": "The National Park Service's new America-first pricing policy will see foreign visitors pay more to access popular national parks, including Yellowstone and the Grand Canyon.",
+            "url": "https://www.washingtonpost.com/travel/2025/11/25/national-parks-announce-america-first-upcharges-foreign-visitors/",
+            "urlToImage": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/V2RHPLMH4L4QTZPPJMBTR3GK7Q_size-normalized.jpg&w=1440",
+            "publishedAt": "2025-11-26T06:14:16Z",
+            "content": "The National Park Service is introducing a digital annual pass that charges foreign visitors $170 more than United States residents across the federal recreation system.\r\nAccording to a news release … [+154 chars]"
+        },
+        {
+            "source": {
+                "id": "bloomberg",
+                "name": "Bloomberg"
+            },
+            "author": "Anand Krishnamoorthy",
+            "title": "Asian Stocks Set to Extend Gains on Fed Cut Hopes: Markets Wrap - Bloomberg.com",
+            "description": "Stocks advanced and the dollar fell as weak US consumer data and the emergence of a pro-rate-cut official as the potential head of the Federal Reserve pushed markets to price in an almost-certain reduction in borrowing costs.",
+            "url": "https://www.bloomberg.com/news/articles/2025-11-25/asian-stocks-set-to-extend-gains-on-fed-cut-hopes-markets-wrap",
+            "urlToImage": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ir4wll8lTTYo/v0/1200x675.png",
+            "publishedAt": "2025-11-26T05:32:00Z",
+            "content": "Stocks advanced and the dollar fell as weak US consumer data and the emergence of a pro-rate-cut official as the potential head of the Federal Reserve pushed markets to price in an almost-certain red… [+341 chars]"
+        },
+        {
+            "source": {
+                "id": "cbs-news",
+                "name": "CBS News"
+            },
+            "author": "Jacob  Rosen, Joe  Walsh",
+            "title": "Noem made decision not to turn around deportation flights bound for El Salvador after judge's order, DOJ says - CBS News",
+            "description": "DHS Secretary Kristi Noem made the final decision to allow a group of deportees to be handed over to El Salvador after a judge said their flights must be returned to the U.S., the DOJ said.",
+            "url": "https://www.cbsnews.com/news/noem-decision-el-salvador-deportations-trump-judge-order/",
+            "urlToImage": "https://assets2.cbsnewsstatic.com/hub/i/r/2025/10/14/f163190b-8870-4faa-be92-629b73192c0f/thumbnail/1200x630/ea59da51a941b3d13860512a93b60549/gettyimages-2230648569.jpg",
+            "publishedAt": "2025-11-26T04:54:00Z",
+            "content": "Secretary of Homeland Security Kristi Noem made the final decision to allow a group of deportees to be handed over to El Salvador after a judge said their flights must be returned to the United State… [+3563 chars]"
+        },
+        {
+            "source": {
+                "id": "politico",
+                "name": "Politico"
+            },
+            "author": "Cheyenne Haslett, Sophie Gardner",
+            "title": "Trump opens the door to Obamacare subsidy extension - Politico",
+            "description": "The president said an extension of subsidies that help people pay for health insurance \"may be necessary\" to buy time for a broader overhaul.",
+            "url": "https://www.politico.com/news/2025/11/25/trump-obamacare-subsidy-extension-aca-00669491",
+            "urlToImage": "https://www.politico.com/dims4/default/resize/1200/quality/90/format/jpg?url=https%3A%2F%2Fstatic.politico.com%2F42%2F48%2F6a2759254a1f8c3d7df5f018dd2a%2Fhttps-delivery-gettyimages.com%2Fdownloads%2F2220537658",
+            "publishedAt": "2025-11-26T04:06:32Z",
+            "content": "Dont give any money to the insurance companies. Give it to the people directly, let them go out, buy their own health care plan, Trump said again Tuesday. Were looking at that.\r\nThough his comments l… [+3105 chars]"
+        },
+        {
+            "source": {
+                "id": "the-hill",
+                "name": "The Hill"
+            },
+            "author": "Rob Taub",
+            "title": "Campbell Soup exec called products food for ‘poor people’: Lawsuit - The Hill",
+            "description": "The lawsuit alleges Campbell’s vice president, Martin Bally, made the comments late last year.",
+            "url": "https://thehill.com/homenews/5622785-campbell-soup-executive-lawsuit/",
+            "urlToImage": "https://thehill.com/wp-content/uploads/sites/2/2025/11/673dfc2aa39108.56752060.jpeg?w=1280",
+            "publishedAt": "2025-11-26T03:59:00Z",
+            "content": "Skip to content\r\n(NewsNation) — A Campbell Soup executive is accused of calling the company’s products food for “poor people” while speaking with a former employee, according to a lawsuit.\r\nThe lawsu… [+1503 chars]"
+        },
+        {
+            "source": {
+                "id": "espn",
+                "name": "ESPN"
+            },
+            "author": "Myron Medcalf",
+            "title": "CEO: Players Era champ to get extra $1M in NIL - ESPN",
+            "description": "The winner of the Players Era championship game Wednesday will receive an additional $1 million in NIL compensation, with the loser getting $500K.",
+            "url": "https://www.espn.com/mens-college-basketball/story/_/id/47103454/players-era-champion-get-extra-1m-nil-funds-says-ceo",
+            "urlToImage": "https://a4.espncdn.com/combiner/i?img=%2Fphoto%2F2015%2F1116%2Fr26442_1296x729_16%2D9.jpg",
+            "publishedAt": "2025-11-26T03:43:00Z",
+            "content": "LAS VEGAS -- Seth Berger, the CEO of the Players Era Festival, said the winner of the event's championship game Wednesday between Michigan and Gonzaga will receive an additional $1 million in name, i… [+2092 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "TMZ"
+            },
+            "author": "TMZ Staff",
+            "title": "'Seeking Sister Wife' Star Garrick Merrifield Arrested - TMZ",
+            "description": "\"Seeking Sister Wife\" star Garrick Merrifield is juggling a lot these days ... he's got a couple wives, a baby and three other kids ... and now he's got some legal trouble to deal with ... because he just got busted for misdemeanor domestic violence ... TMZ h…",
+            "url": "https://www.tmz.com/2025/11/25/garrick-merrifield-arrested/",
+            "urlToImage": "https://imagez.tmz.com/image/e0/16by9/2025/11/26/e061b3dc5c9d49809a9f81e1f7ec3d2b_xl.jpg",
+            "publishedAt": "2025-11-26T03:21:48Z",
+            "content": "\"Seeking Sister Wife\" star Garrick Merrifield is juggling a lot these days ... he's got a couple wives, a baby and three other kids ... and now he's got some legal trouble to deal with ... because he… [+870 chars]"
+        },
+        {
+            "source": {
+                "id": "cnn",
+                "name": "CNN"
+            },
+            "author": null,
+            "title": "Italy now recognizes the crime of femicide and punishes it with life in prison - CNN",
+            "description": "Italy’s parliament on Tuesday approved a law that introduces femicide into the country’s criminal law and punishes it with life in prison.",
+            "url": "https://www.cnn.com/2025/11/25/europe/italy-femicide-law-intl-hnk",
+            "urlToImage": "https://media.cnn.com/api/v1/images/stellar/prod/ap25329575083107.jpg?c=16x9&q=w_800,c_fill",
+            "publishedAt": "2025-11-26T02:48:00Z",
+            "content": "Italys parliament on Tuesday approved a law that introduces femicide into the countrys criminal law and punishes it with life in prison.\r\nThe vote coincided with the international day for the elimina… [+2137 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "NPR"
+            },
+            "author": "Rosemary Westwood",
+            "title": "Louisiana's top health official, a critic of the COVID vaccine, will be CDC deputy : Shots - Health News - NPR",
+            "description": "Louisiana's surgeon general Dr. Ralph Abraham, who has praised Robert F. Kennedy Jr.'s tenure as health secretary and called COVID vaccines \"dangerous,\" will become the second-highest ranking official at the CDC.",
+            "url": "https://www.npr.org/sections/shots-health-news/2025/11/25/nx-s1-5620991/louisiana-surgeon-general-ralph-abraham-cdc-deputy",
+            "urlToImage": "https://npr.brightspotcdn.com/dims3/default/strip/false/crop/4459x2507+1013+725/resize/1400/quality/100/format/jpeg/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Fa8%2F61%2F85ddea3340ceb3bbfd7c8a7f37f0%2Fap19285096746799.jpg",
+            "publishedAt": "2025-11-26T01:02:57Z",
+            "content": "The second-highest ranking official at the Centers for Disease Control and Prevention will be Dr. Ralph Abraham, the head of Louisiana's health department.\r\nHe has questioned the safety of the COVID … [+4040 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Collegefootballplayoff.com"
+            },
+            "author": "College Football Playoff",
+            "title": "College Football Playoff Selection Committee Issues Fourth Rankings of 2025 - College Football Playoff",
+            "description": "",
+            "url": "https://collegefootballplayoff.com/news/2025/11/25/cfp-rankings.aspx",
+            "urlToImage": "https://images.sidearmdev.com/fit?url=https%3a%2f%2fdxbhsrqyrr690.cloudfront.net%2fsidearm.nextgen.sites%2fcollegefootballplayoff.sidearmsports.com%2fimages%2f2025%2f11%2f25%2f16x9.png&height=450&width=800&type=jpeg",
+            "publishedAt": "2025-11-26T01:01:44Z",
+            "content": "Thanks for visiting !\r\nThe use of software that blocks ads hinders our ability to serve you the content you came here to enjoy.\r\nWe ask that you consider turning off your ad blocker so we can deliver… [+81 chars]"
+        },
+        {
+            "source": {
+                "id": "associated-press",
+                "name": "Associated Press"
+            },
+            "author": "The Associated Press",
+            "title": "Report: US envoy coached Putin aide on how Russian leader should pitch Trump on Ukraine peace plan - AP News",
+            "description": "President Donald Trump’s chief interlocutor with the Russian government last month advised a senior aide to Vladimir Putin on how the Russian leader should go about pitching the U.S. president on a Ukraine peace plan. That's according to a transcript of the O…",
+            "url": "https://apnews.com/article/trump-witkoff-putin-ukraine-bloomberg-3844a3721d92dd9ae9681547a0814d88",
+            "urlToImage": "https://dims.apnews.com/dims4/default/4f13715/2147483647/strip/true/crop/2471x1390+0+129/resize/1440x810!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F8e%2Fd6%2Fcae317870324f69cce2eb30f54f4%2F64f270ff84be45dba1aa0f811a5f62f7",
+            "publishedAt": "2025-11-26T00:58:00Z",
+            "content": "WASHINGTON (AP) President Donald Trumps chief interlocutor with the Russian government last month advised a senior aide to Vladimir Putin on how the Russian leader should go about pitching the U.S. p… [+4807 chars]"
+        },
+        {
+            "source": {
+                "id": "cbs-news",
+                "name": "CBS News"
+            },
+            "author": null,
+            "title": "West Virginia Sen. Jim Justice agrees to pay nearly $5.2 million in overdue personal taxes - CBS News",
+            "description": "U.S. Sen. Jim Justice of West Virginia has agreed to pay nearly $5.2 million in overdue personal taxes.",
+            "url": "https://www.cbsnews.com/news/senator-jim-justice-west-virginia-pay-over-5-million-dollars-overdue-personal-taxes/",
+            "urlToImage": "https://assets2.cbsnewsstatic.com/hub/i/r/2025/01/02/8e2ce652-6c1d-436d-8833-249fab3774ef/thumbnail/1200x630/c9d1595efc212f3ed035e91d8b70d3cb/gettyimages-2183903317-1.jpg",
+            "publishedAt": "2025-11-26T00:42:38Z",
+            "content": "Republican Sen. Jim Justice of West Virginia has agreed to pay nearly $5.2 million in overdue personal taxes, the latest saga for the former billionaire who has been followed by a trail of financial … [+4088 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "On3.com"
+            },
+            "author": "Zach Abolverdi",
+            "title": "New odds released on where Lane Kiffin will coach next season - On3",
+            "description": "Bet Online has released new odds for where Lane Kiffin will be coach next season as well as well the favorite for the Florida Gators job.",
+            "url": "https://www.on3.com/teams/florida-gators/news/new-odds-released-on-where-lane-kiffin-will-coach-next-season/",
+            "urlToImage": "https://on3static.com/uploads/dev/assets/cms/2025/11/19102144/Kiffin-OM-LSU-UF.jpg",
+            "publishedAt": "2025-11-25T23:42:46Z",
+            "content": "Bet Online has released new odds for where Lane Kiffin will coach next season as well as updated odds for the Florida job. The current betting favorite for Kiffin is LSU. \r\nKiffin has -175 odds to be… [+2101 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Space.com"
+            },
+            "author": "Robert Lea",
+            "title": "Scientists may have finally 'seen' dark matter for the 1st time - Space",
+            "description": "\"This signifies a major development in astronomy and physics.\"",
+            "url": "https://www.space.com/astronomy/dark-universe/scientists-may-have-finally-seen-dark-matter-for-the-1st-time",
+            "urlToImage": "https://cdn.mos.cms.futurecdn.net/4cAp3vwEfeD3qbRUXYsvaQ-513-80.jpg",
+            "publishedAt": "2025-11-25T23:00:00Z",
+            "content": "Scientists may have \"seen\" dark matter for the first time, thanks to NASA's Fermi gamma-ray space telescope. If so, this would mark the first direct detection of the universe's most mysterious substa… [+4684 chars]"
+        },
+        {
+            "source": {
+                "id": "axios",
+                "name": "Axios"
+            },
+            "author": "Barak Ravid, Dave Lawler",
+            "title": "Zelensky ready to meet Trump over Thanksgiving to finalize deal, top aide tells Axios - Axios",
+            "description": "U.S. and Ukrainian officials have agreed in principle on most aspects of the plan.",
+            "url": "https://www.axios.com/2025/11/25/trump-zelensky-meeting-ukraine-plan-yermak",
+            "urlToImage": "https://images.axios.com/rC5qEgJiu9qFShCLKWWt8WaDv1g=/0x87:3511x2062/1366x768/2025/11/25/1764087373231.jpeg",
+            "publishedAt": "2025-11-25T22:46:05Z",
+            "content": "\u003Cul\u003E\u003Cli\u003EA U.S. official confirmed there were discussions with the Ukrainians about a meeting this week or next, but said no date had been set.\u003C/li\u003E\u003Cli\u003ETrump will leave Washington for Thanksgiving on … [+4618 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Variety"
+            },
+            "author": "Clayton Davis",
+            "title": "‘Knives Out’ Creators Rian Johnson and Ram Bergman on ‘Wake Up Dead Man,’ What’s Next for Franchise and Building Hollywood’s Boldest Studio - Variety",
+            "description": "A look inside T-Street Productions, “Wake Up Dead Man,” and how Rian Johnson and Ram Bergman are shaping the future of the “Knives Out” franchise.",
+            "url": "https://variety.com/2025/film/awards/t-street-rian-johnson-wake-up-dead-man-franchise-future-1236592098/",
+            "urlToImage": "https://variety.com/wp-content/uploads/2025/11/WUDM_00774_R-1.jpg?w=1000&h=563&crop=1",
+            "publishedAt": "2025-11-25T22:30:00Z",
+            "content": "At a glance, T-Street Productions doesn’t look like much — a quiet, repurposed West Los Angeles building that once housed a music supply store. But within its walls, a small collective of fiercely lo… [+9338 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "NPR"
+            },
+            "author": "The Associated Press",
+            "title": "New limits for rent algorithm that prosecutors say lets landlords drive up prices - NPR",
+            "description": "Landlords could no longer rely on rent-pricing software to quietly track each other's moves and push rents higher using confidential data, under a settlement between RealPage Inc. and federal prosecutors.",
+            "url": "https://www.npr.org/2025/11/25/g-s1-99331/realpage-rent-algorithm-limits-settlement",
+            "urlToImage": "https://npr.brightspotcdn.com/dims3/default/strip/false/crop/8640x4860+0+500/resize/1400/quality/100/format/jpeg/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Fd6%2F01%2F4627abb84a8b964c20565fe994ca%2Fap25329599677391.jpg",
+            "publishedAt": "2025-11-25T21:40:58Z",
+            "content": "Landlords could no longer rely on rent-pricing software to quietly track each other's moves and push rents higher using confidential data, under a settlement between RealPage Inc. and federal prosecu… [+3315 chars]"
+        }
+    ]
+    constructor(){
+        super();
+        this.state = {
+            articles : this.articles,
+            loading : false,
+        }
+    }
+  render() {
+    return (
+        <div className = "container my-4">
+            <h2>News HeadLines</h2>
+            <div className="row my-4">
+                {this.state.articles.map((article, index) => (
+                    <div className="col-md-4" key={index}>
+                        <Newsitem
+                            title={article.title.slice(0,45)}
+                            desc={article.description.slice(0,90)}
+                            imageUrl={article.urlToImage}
+                            newsUrl={article.url}
+                        />
+                    </div>
+                ))}
+                
+            </div>
+        </div>
+    )
+  }
+}
