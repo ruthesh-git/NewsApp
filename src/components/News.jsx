@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Newsitem from './NewsItem';
+import Spinner from './Spinner';
 
 export default class News extends Component {
     
@@ -26,21 +27,18 @@ export default class News extends Component {
         let parsedData = await data.json();
 
         console.log(parsedData);
-        this.setState({totalResults : parsedData.totalResults}) //the total number of articles
         this.setState({articles:parsedData.articles,
-                        loading:false
+                        loading:false,
+                        totalResults : parsedData.totalResults
         })
     }
 
     
     handleNext = async ()=>{
-        if(this.state.page +1 > Math.ceil(this.setState.totalResults/20)){
-            
-        }
-        else{
-            {this.setState({page : this.state.page +1},
+        if(!(this.state.page +1 > Math.ceil(this.state.totalResults/20))){
+            this.setState({page : this.state.page +1},
                 this.fetchArticles
-            );}
+            );
         }
     }
 
@@ -53,13 +51,14 @@ export default class News extends Component {
   render() {
     return (
         <div className = "container my-4">
-            <h2>News HeadLines</h2>
+            <h2 className='text-center'>News HeadLines</h2>
+            {this.state.loading && <Spinner/>}
             <div className="row my-4">
                 {this.state.articles.map((article, index) => (
                     <div className="col-md-4" key={index}>
                         <Newsitem
-                            title={article.title?article.title.slice(0,45):""}
-                            desc={article.description?article.description.slice(0,90) : ""}
+                            title={article.title?article.title.slice(0,45) + "...": ""}
+                            desc={article.description?article.description.slice(0,90) + "..." : ""}
                             imageUrl={article.urlToImage}
                             newsUrl={article.url}
                             
@@ -68,7 +67,13 @@ export default class News extends Component {
                 ))}
                 <div className="container d-flex justify-content-between">
                 <button disabled = {this.state.page<=1} type="button" className="btn btn-dark" onClick = {this.handlePrev}>Previous</button>
-                <button type="button" className="btn btn-dark" onClick = {this.handleNext}>Next</button>
+                <button 
+                    disabled={this.state.page + 1 > Math.ceil(this.state.totalResults / 20)}
+                    type="button" 
+                    className="btn btn-dark" 
+                    onClick = {this.handleNext}>
+                        Next
+                </button>
                 </div>
             </div>
         </div>
