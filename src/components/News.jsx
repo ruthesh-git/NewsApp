@@ -7,6 +7,8 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 export default class News extends Component {
 
+    apikey = process.env.REACT_APP_NEWS_API;
+
     static defaultProps = {
         country: 'in',
         category: 'general',
@@ -39,11 +41,14 @@ export default class News extends Component {
             this.setState({ loading: false });
             return;
         }
+        if(this.state.page === 1)this.props.setProgress(25)
         this.setState({ loading: true });
 
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=3fd7e7bde77b44f9a45550d779ba08f9&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.apikey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
         let data = await fetch(url);
         let parsedData = await data.json();
+
+        if(this.state.page === 1)this.props.setProgress(70)
 
         console.log(parsedData);
         this.setState({
@@ -53,9 +58,11 @@ export default class News extends Component {
         })
 
         //CRITICAL: If we got 0 articles, force stop by matching lengths
-    if (parsedData.articles.length === 0) {
-        this.setState({ totalResults: this.state.articles.length });
-    }
+        if (parsedData.articles.length === 0) {
+            this.setState({ totalResults: this.state.articles.length });
+        }
+
+        if(this.state.page === 1)this.props.setProgress(100)
     }
     fetchData = async () => {
         this.setState(
@@ -72,7 +79,7 @@ export default class News extends Component {
 
                 {this.state.loading && this.state.articles.length === 0 && <Spinner />}
 
-                <InfiniteScroll 
+                <InfiniteScroll
                     dataLength={this.state.articles.length} //This is important field to render the next data
                     next={this.fetchData}
                     hasMore={this.state.articles.length < this.state.totalResults}
@@ -85,7 +92,7 @@ export default class News extends Component {
                     {this.state.articles.map((article, index) => (
                         <div className="col-md-4" key={index}>
                             <Newsitem
-                                title={article.title ? article.title.slice(0, 45) + "..." : ""}
+                                title={article.title ? article.title.slice(0, 90) + "..." : ""}
                                 desc={article.description ? article.description.slice(0, 90) + "..." : ""}
                                 imageUrl={article.urlToImage}
                                 newsUrl={article.url}
