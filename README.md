@@ -1,70 +1,175 @@
-# Getting Started with Create React App
+📰 rNews — React News App (RobustNews):
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A clean, fast, and modern React News Application built with NewsAPI.org, featuring category filtering, infinite scrolling, top-loading progress bar, and responsive UI.
 
-## Available Scripts
+This app fetches real-time headlines and displays them with an elegant card-based layout.
 
-In the project directory, you can run:
+🚀 Features:
 
-### `npm start`
+🔥 Core Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* Live News Fetching using NewsAPI
+* Infinite Scroll for seamless news browsing
+* Category-based Navigation (Business, Sports, Tech, Health, etc.)
+* Top Loading Bar for smooth page transitions
+* Responsive Layout using Bootstrap cards
+* Environment-based API key using `.env`
+* Automatic Title Update per category
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+🧩 Tech Stack
 
-### `npm test`
+* React (Hooks + Functional Components)
+* React Router v6
+* InfiniteScroll (react-infinite-scroll-component)
+* React Top Loading Bar
+* Bootstrap
+* NewsAPI.org
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+📦 Installation & Setup
 
-### `npm run build`
+1️⃣ Clone the repository
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+git clone https://github.com/your-username/NewsApp.git
+cd NewsApp
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2️⃣ Install dependencies
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm install
+```
 
-### `npm run eject`
+3️⃣ Add your API key
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Create a `.env` file at the root:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+REACT_APP_NEWS_API=your_api_key_here
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Restart the app after saving.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+4️⃣ Run the project
 
-## Learn More
+```bash
+npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+App will run at: [http://localhost:3000](http://localhost:3000)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+🔑 API Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This project uses the [NewsAPI.org](https://newsapi.org) endpoint:
 
-### Analyzing the Bundle Size
+```
+https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=YOUR_KEY
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Environment variable used:
 
-### Making a Progressive Web App
+```js
+const apikey = process.env.REACT_APP_NEWS_API;
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+🗂️ Project Structure
 
-### Deployment
+```
+src/
+│── App.js
+│── App.css
+│── components/
+│       ├── Navbar.js
+│       ├── News.js
+│       ├── NewsItem.js
+│       ├── Spinner.js
+│── index.js
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ 🧠 How Infinite Scroll Works
+
+* `page` state increments with every scroll
+* `fetchArticles()` is triggered when new data is needed
+* Prevents unnecessary fetches when all results are loaded
+* Uses:
+
+```js
+<InfiniteScroll
+  dataLength={articles.length}
+  next={fetchData}
+  hasMore={articles.length < totalResults}
+  loader={<Spinner />}
+/>
+```
+
+---
+
+ 🧱 Key Components
+
+ News Component
+
+Handles:
+
+* Fetching data
+* Setting progress bar
+* Infinite scrolling
+* Rendering `NewsItem` components
+
+ NewsItem Component
+
+Displays:
+
+* Title
+* Description
+* Source badge
+* Image
+* External link
+
+ Navbar Component
+
+Provides navigation:
+
+* General
+* Business
+* Technology
+* Sports
+* Health
+* Entertainment
+* Science
+
+---
+
+ 🚧 Known Limitations
+
+* NewsAPI free plan does not allow requests from production domains (only localhost).
+* Some articles may have missing images — handled gracefully.
+
+---
+
+ 🤝 Contributing
+
+Pull requests are welcome!
+Feel free to open issues for suggestions or bug reports.
+
+---
+
+ 📝 License
+
+This project is licensed under the MIT License.
+
+---
+
+If you want, I can also generate:
+
+✅ a project logo
+✅ GitHub badges (stars, forks, tech stack)
+✅ a better mobile-friendly screenshot section
+✅ a deployment-ready Vercel/Netlify guide
+
+Just ask!
